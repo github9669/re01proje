@@ -3,15 +3,13 @@
     padding: 0;
 }
 
-html,
-body {
+.swithDivContain {
+    width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
 
-video {
-    display: none;
-}
-
+/* 引言部分 */
 .indexImg {
     width: 100vw;
     height: 100vh;
@@ -19,28 +17,63 @@ video {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    overflow: hidden;
-    opacity: 1;
-    transition: opacity .3s;
-    /* position: relative; */
+    transition: all 1s;
+}
+
+.indexImgMoveup {
+
+    transform: translateY(-100vh);
+}
+
+@keyframes maskShow {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    to {
+        background-color: rgba(0, 0, 0, .5);
+    }
 }
 
 .mask {
-    /* display: none; */
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(255, 255, 255, .5);
-    position: relative;
-    bottom: -100%;
-    font-size: 36px;
-    color: #444;
-    text-align: center;
-    line-height: 100vh;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    animation: maskShow 1s ease-out 1s forwards;
 }
 
-.maskShow {
-    transition: bottom .5s;
-    bottom: 0;
+.title {
+    color: #fff;
+    font-size: .9vw;
+    position: absolute;
+    top: 50vh;
+    opacity: 0;
+}
+
+@keyframes titleShow {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.title1 {
+    left: 44vw;
+    animation: titleShow .5s ease-out 2s forwards;
+}
+
+.title2 {
+    left: 50vw;
+    animation: titleShow .5s ease-out 3s forwards;
+}
+
+.title3 {
+    top: 55vh;
+    left: 55vw;
+    animation: titleShow .5s ease-out 4s forwards;
 }
 
 @keyframes breath {
@@ -66,51 +99,54 @@ video {
     animation: breath 2s ease-in-out infinite;
 }
 
-.showMe {
-    display: none;
-    background-color: #fff;
-    color: #444;
-    font-size: 20px;
-    text-align: center;
-    transition: all .5s;
-}
+/* 引言部分结束 */
 
-.showMeUp {
-    display: block;
-    transform: translateY(-100vh);
-}
+/* 个人介绍 */
 
-.showMe p {
-    margin-top: 5vh;
+
+@keyframes rotate360 {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .headImg {
-    width: 200px;
-    height: 200px;
-    margin-top: 20vh;
-    border: solid 10px #fff;
+    width: 8vw;
+    height: 8vw;
+    border: solid .5vw #fff;
     border-radius: 50%;
     box-shadow: 3px 3px 10px rgb(185, 185, 185);
     background-image: url(../img/mandora.jpg);
     background-size: contain;
-    display: inline-block;
+    animation: rotate360 10s linear infinite;
+    margin: 0 auto;
+    margin-top: 10vh;
 }
 
-.jokeList {
-    display: none;
-    justify-content: space-around;
-    margin-top: 5vh;
-
+.showMe {
+    width: 100vw;
+    height: 100vh;
+    transition: all 1s;
 }
 
-.jokeShow {
-    display: flex;
+.showMe p {
+    text-align: center;
+    margin-top: 3vh;
 }
 
-.jokeItem {
-    width: 90vw;
-    border: 1px solid #fff;
-    box-shadow: 3px 3px 10px rgb(185, 185, 185);
-    border-radius: 5px;
-    font-size: 12px;
+.thankList {
+    text-align: center;
+    margin-top: 3vh;
+}
+
+.thankList a {
+    color: rgb(160, 160, 160);
+}
+
+.showMeMoveup {
+    transform: translateY(-100vh);
 }
