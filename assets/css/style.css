@@ -7,10 +7,15 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    position: relative;
+}
+
+.longCanvas {
+    transition: all 1s;
 }
 
 /* 引言部分 */
-.indexImg {
+.introduction {
     width: 100vw;
     height: 100vh;
     background-image: url(../img/deemo2.jpg);
@@ -18,14 +23,11 @@
     background-size: cover;
     background-position: center center;
     transition: all 1s;
+    overflow: hidden;
+    position: relative;
 }
 
-.indexImgMoveup {
-
-    transform: translateY(-100vh);
-}
-
-@keyframes maskShow {
+@keyframes whiteToBlk50 {
     from {
         background-color: rgba(0, 0, 0, 0);
     }
@@ -36,21 +38,24 @@
 }
 
 .mask {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     position: absolute;
-    animation: maskShow 1s ease-out 1s forwards;
+    animation: whiteToBlk50 1s ease-out 1s forwards;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
-.title {
+.introductionText,
+.introductionTitle {
     color: #fff;
-    font-size: .9vw;
-    position: absolute;
-    top: 50vh;
-    opacity: 0;
+    font-size: 24px;
 }
 
-@keyframes titleShow {
+@keyframes opctZeroToOne {
     from {
         opacity: 0;
     }
@@ -60,20 +65,20 @@
     }
 }
 
-.title1 {
-    left: 44vw;
-    animation: titleShow .5s ease-out 2s forwards;
+.introductionText span:first-child {
+    opacity: 0;
+    animation: opctZeroToOne .5s ease-out 2s forwards;
 }
 
-.title2 {
-    left: 50vw;
-    animation: titleShow .5s ease-out 3s forwards;
+.introductionText span:last-child {
+    opacity: 0;
+    animation: opctZeroToOne .5s ease-out 3s forwards;
 }
 
-.title3 {
-    top: 55vh;
-    left: 55vw;
-    animation: titleShow .5s ease-out 4s forwards;
+.introductionTitle {
+    opacity: 0;
+    animation: opctZeroToOne .5s ease-out 4s forwards;
+    transform: translate(0px, 100px);
 }
 
 @keyframes breath {
@@ -103,7 +108,6 @@
 
 /* 个人介绍 */
 
-
 @keyframes rotate360 {
     from {
         transform: rotate(0);
@@ -114,10 +118,17 @@
     }
 }
 
+.showMe {
+    width: 100vw;
+    height: 100vh;
+    transition: all 1s;
+    overflow: hidden;
+}
+
 .headImg {
-    width: 8vw;
-    height: 8vw;
-    border: solid .5vw #fff;
+    width: 180px;
+    height: 180px;
+    border: solid 10px #fff;
     border-radius: 50%;
     box-shadow: 3px 3px 10px rgb(185, 185, 185);
     background-image: url(../img/mandora.jpg);
@@ -127,11 +138,7 @@
     margin-top: 10vh;
 }
 
-.showMe {
-    width: 100vw;
-    height: 100vh;
-    transition: all 1s;
-}
+
 
 .showMe p {
     text-align: center;
