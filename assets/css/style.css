@@ -198,7 +198,7 @@
         -30vmax -10vmax,
         50vmax 50vmax;
 
-    animation: 5s movement linear infinite;
+    animation: 2s movement linear infinite;
     backdrop-filter: blur(10px);
 }
 
